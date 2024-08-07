@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts", // Includes Next.js environment types
+    ".next/types/**/*.ts", // Includes Next.js types
+    "**/*.ts", // Includes all TypeScript files
+    "**/*.tsx", // Includes all TypeScript JSX files
+    "**/*.js", // Includes all JavaScript files
+    "**/*.jsx" // Includes all JavaScript JSX files
+  ],
+  "exclude": ["node_modules"]
+}
