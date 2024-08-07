@@ -1,66 +1,65 @@
 "use client";
-
+import Link from "next/link";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
+  let isActive = (href) => pathname === href;
+
   return (
     <header id="header" className="header sticky-top">
       <div className="branding d-flex align-items-center">
         <div className="container position-relative d-flex align-items-center justify-content-end">
-          <NavLink to="/" className="logo d-flex align-items-center me-auto">
+          <Link href="/" className="logo d-flex align-items-center me-auto">
             <img src="assets/img/logo.png" alt="ISE Lab Logo" />
-          </NavLink>
+          </Link>
           <nav id="navmenu" className="navmenu">
             <ul>
               <li>
-                <NavLink
-                  to="/"
-                  end
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
+                <Link href="/" className={isActive("/") ? "active" : ""}>
                   Home
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/about-us"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <Link
+                  href="/about-us"
+                  className={isActive("/about-us") ? "active" : ""}
                 >
                   About Us
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/members"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <Link
+                  href="/members"
+                  className={isActive("/members") ? "active" : ""}
                 >
                   Members
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/research-topic"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <Link
+                  href="/research-topic"
+                  className={isActive("/research-topic") ? "active" : ""}
                 >
                   Research Topic
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/publication"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <Link
+                  href="/publication"
+                  className={isActive("/publication") ? "active" : ""}
                 >
                   Publications
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                <Link
+                  href="/contact"
+                  className={isActive("/contact") ? "active" : ""}
                 >
                   Contact
-                </NavLink>
+                </Link>
               </li>
             </ul>
             <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
